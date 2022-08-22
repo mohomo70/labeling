@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import './bootstrap.min.css'
 import './App.css';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen'
+import ShowScreen from './screens/ShowScreen'
+import AddScreen from './screens/AddScreen'
+import DetailScreen from './screens/DetailScreen'
+import {Container} from 'react-bootstrap'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Container>
+        <main>
+        <Routes>
+          <Route path="" element={<ShowScreen />}/>
+          <Route path = '/show' element = {<ShowScreen />} />
+          <Route path = '/add' element = {<AddScreen />} />
+          <Route path = '/pic/:id' element = {<DetailScreen/>} />
+        </Routes>
+        </main>
+      </Container>
+    </BrowserRouter>
   );
 }
 
